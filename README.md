@@ -1,6 +1,4 @@
 # ToDayDo-App-flutter
-1
-# toDayDo
 
 A simple and focused task manager to keep track of your daily to-dos.
 
