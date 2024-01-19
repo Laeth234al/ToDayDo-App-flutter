@@ -1,17 +1,40 @@
 # ToDayDo-App-flutter
+1
+# toDayDo
 
-toDayDo is a simple and focused task manager that helps you keep track of your daily to-dos. It offers a streamlined approach to task management, perfect for those who want a clutter-free experience.
+A simple and focused task manager to keep track of your daily to-dos.
 
-Key features:
-  Create tasks: Add tasks quickly and easily, without unnecessary bells and whistles.
-  Mark tasks as done: Simply check off tasks as you complete them, keeping your list tidy and up-to-date.
-  Task history: Deleted tasks move to a history page, providing a record of your completed tasks and allowing you to restore them if needed.
-  Permanent deletion: Tasks can be permanently removed from the app from the history page, ensuring your data is kept clean and organized.
+## Features
 
-Benefits of using toDayDo:
-  Simplicity: The app's minimalist design makes it easy to use and navigate, even for those who are not tech-savvy.
-  Focus: The app's core features encourage you to concentrate on the most important tasks at hand, reducing distractions.
-  Flexibility: The history page provides a safety net for deleted tasks, while also allowing you to permanently remove them when you're ready.
+- **Create tasks:** Easily add tasks to your list.
+- **Mark tasks as done:** Check off tasks as you complete them.
+- **Task history:** View deleted tasks in the history page.
+- **Permanent deletion:** Remove tasks completely from the history page.
 
-------------------------------------------------------------
-toDayDo is an ideal choice for individuals who value a straightforward and efficient approach to task management. It's perfect for staying on top of daily to-dos without getting bogged down in complex features.
+## Benefits
+
+- **Simplicity:** Easy to use and navigate.
+- **Focus:** Encourages concentration on the most important tasks.
+- **Flexibility:** History page provides a safety net for deleted tasks.
+
+## Getting Started
+
+- [Download the app](link_to_download)
+- Install and open the app.
+- Start adding your tasks!
+
+## Usage
+
+1. To create a task, tap the "+" button.
+2. Enter the task name and tap "Add".
+3. To mark a task as done, tap the checkbox next to it.
+4. To view the task history, tap the "History" tab.
+5. To delete a task permanently, swipe left on the task in the history page and tap "Delete".
+
+## Contributing
+
+We welcome contributions! Please see the [Contributing Guidelines](link_to_contributing_guidelines) for more information.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](link_to_license) file for details.
