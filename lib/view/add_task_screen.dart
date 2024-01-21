@@ -1,9 +1,8 @@
 import 'dart:math';
-
+import 'package:ToDayDo/Controller/tasks_controller.dart';
+import 'package:ToDayDo/helper/colors_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todaydo_app/Controller/tasks_controller.dart';
-import 'package:todaydo_app/helper/colors_helper.dart';
 
 class AddTasksScreen extends StatelessWidget {
   const AddTasksScreen({super.key});
@@ -36,8 +35,7 @@ class AddTasksScreen extends StatelessWidget {
           GetBuilder<TasksController>(
             builder: (controller) => TextButton(
               onPressed: () {
-                controller.addTask(
-                    newTaskTitle, Random().nextInt(1000).toString());
+                controller.addTask(newTaskTitle, Random().nextInt(1000).toString());
                 Get.back();
               },
               style: TextButton.styleFrom(

@@ -1,6 +1,6 @@
+import 'package:ToDayDo/Controller/tasks_controller.dart';
+import 'package:ToDayDo/widget/task_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:todaydo_app/Controller/tasks_controller.dart';
-import 'package:todaydo_app/widget/task_tile.dart';
 
 class TasksList extends StatelessWidget {
   const TasksList({

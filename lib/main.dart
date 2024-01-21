@@ -1,15 +1,11 @@
+import 'package:ToDayDo/Controller/app_lifecycle_observer.dart';
+import 'package:ToDayDo/view/tasks_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todaydo_app/Controller/history_controller.dart';
-import 'package:todaydo_app/Controller/tasks_controller.dart';
-import 'package:todaydo_app/view/sign_in_screen.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 
-// Future<SharedPreferences>? sharedPres;
 void main() {
+  Get.put(AppLifecycleObserver());
   WidgetsFlutterBinding.ensureInitialized();
-  // sharedPres = SharedPreferences.getInstance();
-
   runApp(const MyApp());
 }
 
@@ -19,8 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Quicksand',
+      ),
       debugShowCheckedModeBanner: false,
-      home: SignInScreen(),
+      home: TasksScreen(),
     );
   }
 }

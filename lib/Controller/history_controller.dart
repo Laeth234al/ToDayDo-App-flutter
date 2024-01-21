@@ -1,8 +1,7 @@
 import 'dart:convert';
-
+import 'package:ToDayDo/Models/task.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todaydo_app/Models/task.dart';
 
 class HistoryController extends GetxController {
   List<Task> history = [];
@@ -38,8 +37,21 @@ class HistoryController extends GetxController {
 
   void saveData() async {
     final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('tasks-history');
     final tasksJson = history.map((task) => task.toJson()).toList();
     await prefs.setString('tasks-history', jsonEncode(tasksJson));
+  }
+
+  void deleteAllHistory() {
+    history.clear();
+    update();
+  }
+
+  void addToHistory(Task task) {
+    history.add(task);
+    update();
+    print('lenght : ${history.length}');
+    print(history);
   }
 
   void removeTaskFromHistory(int index) {

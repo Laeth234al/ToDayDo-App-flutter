@@ -1,12 +1,12 @@
+import 'package:ToDayDo/Controller/history_controller.dart';
+import 'package:ToDayDo/helper/colors_helper.dart';
+import 'package:ToDayDo/helper/padding_helper.dart';
+import 'package:ToDayDo/helper/textstyle_helper.dart';
+import 'package:ToDayDo/widget/empty_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:todaydo_app/Controller/history_controller.dart';
-import 'package:todaydo_app/helper/colors_helper.dart';
-import 'package:todaydo_app/helper/padding_helper.dart';
-import 'package:todaydo_app/helper/textstyle_helper.dart';
-import 'package:todaydo_app/widget/empty_info.dart';
 
 class History extends StatelessWidget {
   History({super.key});
@@ -21,18 +21,60 @@ class History extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Row(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
+                const Icon(
                   Icons.playlist_add_check,
                   size: 40.0,
                   color: Colors.white,
                 ),
-                SizedBox(width: 20),
-                Text(
+                const Text(
                   'History',
                   style: HelperTextStyle.appBarTextStyle,
-                )
+                ),
+                GetBuilder<HistoryController>(
+                  builder: (historyController) => IconButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            backgroundColor: HelperColor.background, // Using your background color
+                            title: const Text(
+                              'Delete All History',
+                              style: TextStyle(color: HelperColor.indigo, fontWeight: FontWeight.bold), // Using your indigo color
+                            ),
+                            content: const Text(
+                              'Are you sure you want to delete all history?',
+                              style: TextStyle(color: HelperColor.listTile), // Using your listTile color
+                            ),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () => Get.back(), // Close dialog without deletion
+                                style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(HelperColor.indigo)),
+                                child: const Text('Cancel', style: TextStyle(color: Colors.white)),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  historyController.deleteAllHistory();
+                                  Get.back(); // Close dialog and indicate deletion
+                                },
+                                style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.red)),
+                                child: const Text('Delete', style: TextStyle(color: Colors.white)),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                    icon: const Icon(
+                      CupertinoIcons.trash,
+                      color: Colors.red,
+                      size: 30.0,
+                    ),
+                  ),
+                ),
               ],
             ),
             const SizedBox(
@@ -62,9 +104,13 @@ class History extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               child: ListTile(
-                                title: Text(historyController.history[index].name),
+                                title: Text(
+                                  historyController.history[index].name,
+                                  style: HelperTextStyle.titleTextStyle,
+                                ),
                                 subtitle: Text(
-                                  '${DateFormat.yMd().add_jm().format(historyController.history[index].startDate)}\n${DateFormat.yMd().add_jm().format(historyController.history[index].exDate)}',
+                                  'Start date : ${DateFormat.yMd().add_jm().format(historyController.history[index].startDate)}\nEnd date : ${DateFormat.yMd().add_jm().format(historyController.history[index].exDate)}',
+                                  style: HelperTextStyle.subtitleTextStyle,
                                 ),
                                 trailing: IconButton(
                                   onPressed: () {

@@ -13,4 +13,11 @@ class HelperTextStyle {
       ),
     ],
   );
+  static const TextStyle titleTextStyle = TextStyle(
+    fontSize: 16.0,
+    fontWeight: FontWeight.w600,
+  );
+  static const TextStyle subtitleTextStyle = TextStyle(
+    fontSize: 14.0,
+  );
 }

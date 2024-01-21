@@ -1,7 +1,8 @@
+import 'package:ToDayDo/Controller/tasks_controller.dart';
+import 'package:ToDayDo/helper/colors_helper.dart';
+import 'package:ToDayDo/helper/textstyle_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:todaydo_app/Controller/tasks_controller.dart';
-import 'package:todaydo_app/helper/colors_helper.dart';
 
 class TaskTile extends StatelessWidget {
   const TaskTile({
@@ -26,11 +27,14 @@ class TaskTile extends StatelessWidget {
         },
         title: Text(
           tasksController.tasks[index].name,
-          style: TextStyle(
+          style: HelperTextStyle.titleTextStyle.copyWith(
             decoration: tasksController.tasks[index].isDone ? TextDecoration.lineThrough : null,
           ),
         ),
-        subtitle: Text(DateFormat.yMd().add_jm().format(tasksController.tasks[index].startDate)),
+        subtitle: Text(
+          DateFormat.yMd().add_jm().format(tasksController.tasks[index].startDate),
+          style: HelperTextStyle.subtitleTextStyle,
+        ),
         trailing: Checkbox(
           activeColor: HelperColor.background,
           value: tasksController.tasks[index].isDone,
